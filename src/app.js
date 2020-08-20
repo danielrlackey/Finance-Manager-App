@@ -8,7 +8,7 @@ import "./styles/styles.css";
 
 const store = configureStore();
 
-console.log("testing")
+
 const jsx = (
     <Provider store={store}>
         <AppRouter />
