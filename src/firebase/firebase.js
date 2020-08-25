@@ -14,5 +14,7 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig)
 
   firebase.database().ref().set({
-      name: "daniel lackey"
+      name: "daniel lackey",
+      age: "30",
+    
   })
