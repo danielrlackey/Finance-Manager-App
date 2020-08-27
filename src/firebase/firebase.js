@@ -15,33 +15,62 @@ const firebaseConfig = {
 
 const dataBase = firebase.database()
 
-  dataBase.ref().set({
-      name: "daniel lackey",
-      age: 30,
-      isSingle: false,
-      location: {
-          city: "st.petersburg",
-          state: "florida",
-          country: "united states"
-      }
-  }).then(() => {
-    console.log("data is saved")
-  }).catch((e) => {
-    console.log("this failed", e)
-  })
-
-//   dataBase.ref().set("this is my data");
-
-dataBase.ref("age").set(31);
-dataBase.ref("location/city").set("tampa");
-
-
-dataBase.ref("attributes").set({
-    height: "5ft 7in",
-    weight: "210lbs"
-}).then(() => {
-    console.log("it is working")
-}).catch((e) => {
-    console.log("is not working ", e)
+const onValueChange = dataBase.ref().on("value", (snapshot) => {
+    console.log(snapshot.val());
+}, (e) => {
+ console.log("error with data fetching", e )
 });
+  
+setTimeout(() => {
+    dataBase.ref("age").set(29);
+}, 3500);
+
+setTimeout(() => {
+    dataBase.ref().off(onValueChange);
+}, 7000);
+
+setTimeout(() => {
+    dataBase.ref("age").set(30);
+}, 10500);
+
+// dataBase.ref("location/city").once("value")
+//   .then((snapshot) => {
+//    const val = snapshot.val();
+//    console.log(val);
+//   }).catch((e) => {
+//     console.log("error fetching data", e);
+//   });
+
+
+//   dataBase.ref().set({
+//       name: "daniel lackey",
+//       age: 30,
+//       stressLevel: 6,
+//       job: {
+//           title: "software developer",
+//           company: "google"
+//       },
+//       location: {
+//           city: "st.petersburg",
+//           country: "united states"
+//       }
+//   }).then(() => {
+//     console.log("data is saved")
+//   }).catch((e) => {
+//     console.log("this failed", e)
+//   })
+
+//   dataBase.ref().update({
+//       stressLevel: 9,
+//       "job/company": "amazon",
+//       "location/city": "seattle"
+//   });
+
+// dataBase.ref("isSingle").remove()
+//   .then(() => {
+//       console.log("data was")
+//   }).catch((e) => {
+//       console.log("did not remove data", e)
+//   })
+
 
