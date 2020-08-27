@@ -13,8 +13,35 @@ const firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig)
 
-  firebase.database().ref().set({
+const dataBase = firebase.database()
+
+  dataBase.ref().set({
       name: "daniel lackey",
-      age: "30",
-    
+      age: 30,
+      isSingle: false,
+      location: {
+          city: "st.petersburg",
+          state: "florida",
+          country: "united states"
+      }
+  }).then(() => {
+    console.log("data is saved")
+  }).catch((e) => {
+    console.log("this failed", e)
   })
+
+//   dataBase.ref().set("this is my data");
+
+dataBase.ref("age").set(31);
+dataBase.ref("location/city").set("tampa");
+
+
+dataBase.ref("attributes").set({
+    height: "5ft 7in",
+    weight: "210lbs"
+}).then(() => {
+    console.log("it is working")
+}).catch((e) => {
+    console.log("is not working ", e)
+});
+
