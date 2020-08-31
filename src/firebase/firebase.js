@@ -15,23 +15,55 @@ const firebaseConfig = {
 
 const dataBase = firebase.database()
 
-const onValueChange = dataBase.ref().on("value", (snapshot) => {
-    console.log(snapshot.val());
-}, (e) => {
- console.log("error with data fetching", e )
-});
+
+dataBase.ref("expenses")
+  .on("value", (snapshot) => {
+    const expenses = []
+
+    snapshot.forEach((childSnapshot) => {
+        expenses.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+        });
+    });
+
+    console.log(expenses)
+  });
+
   
-setTimeout(() => {
-    dataBase.ref("age").set(29);
-}, 3500);
 
-setTimeout(() => {
-    dataBase.ref().off(onValueChange);
-}, 7000);
 
-setTimeout(() => {
-    dataBase.ref("age").set(30);
-}, 10500);
+// dataBase.ref("expenses")
+//   .once("value")
+//   .then((snapshot) => {
+//    const expenses = [];
+
+//    snapshot.forEach((childSnapshot) => {
+//     expenses.push({
+//         id: childSnapshot.key,
+//         ...childSnapshot.val()
+//     });
+//    });
+
+//    console.log(expenses);
+//   });
+
+
+// dataBase.ref("expenses").push({
+//     description: "rent",
+//     note: "my rent",
+//     amount: 124567,
+//     createdAt: 4756085
+// });
+
+
+// dataBase.ref("notes/-MG59W9bq66qEKENnNKe").remove();
+
+// dataBase.ref().on("value", (snapshot) => {
+//    const val = snapshot.val();
+//    console.log(`${val.name} is a ${val.job.title} at ${val.job.company}`)
+// });
+
 
 // dataBase.ref("location/city").once("value")
 //   .then((snapshot) => {
