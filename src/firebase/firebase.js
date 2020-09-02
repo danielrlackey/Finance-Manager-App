@@ -15,20 +15,35 @@ const firebaseConfig = {
 
 const dataBase = firebase.database()
 
+export { firebase, dataBase as default };
 
-dataBase.ref("expenses")
-  .on("value", (snapshot) => {
-    const expenses = []
 
-    snapshot.forEach((childSnapshot) => {
-        expenses.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val()
-        });
-    });
+// dataBase.ref("expenses").on("child_removed", (snapshot) => {
+//     console.log(snapshot.key, snapshot.val())
+// });
 
-    console.log(expenses)
-  });
+// dataBase.ref("expenses").on("child_changed", (snapshot) => {
+//     console.log(snapshot.key, snapshot.val())
+// });
+
+
+// dataBase.ref("expenses").on("child_added", (snapshot) => {
+//     console.log(snapshot.key, snapshot.val())
+// });
+
+// dataBase.ref("expenses")
+//   .on("value", (snapshot) => {
+//     const expenses = []
+
+//     snapshot.forEach((childSnapshot) => {
+//         expenses.push({
+//             id: childSnapshot.key,
+//             ...childSnapshot.val()
+//         });
+//     });
+
+//     console.log(expenses)
+//   });
 
   
 
@@ -49,12 +64,14 @@ dataBase.ref("expenses")
 //   });
 
 
+
 // dataBase.ref("expenses").push({
 //     description: "rent",
 //     note: "my rent",
 //     amount: 124567,
 //     createdAt: 4756085
 // });
+
 
 
 // dataBase.ref("notes/-MG59W9bq66qEKENnNKe").remove();
