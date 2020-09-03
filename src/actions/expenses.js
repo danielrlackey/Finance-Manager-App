@@ -16,11 +16,11 @@ export const startAddExpense = (expenseData = {}) => {
         } = expenseData;
         const expense = { description, note, amount, createdAt }
 
-        dataBase.ref("expenses").push(expense).then((ref) => {
+        return dataBase.ref("expenses").push(expense).then((ref) => {
             dispatch(addExpense({
                 id: ref.key,
                 ...expense
-            }))
+            }));
         });
     };
 };
@@ -36,5 +36,14 @@ export const editExpense = (id, updates) => ({
     type: "EDIT_EXPENSE",
     id,
     updates
-})
+});
+
+export const setExpenses = (expenses) => ({
+    type: "SET_EXPENSES",
+    expenses
+});
+
+// export const startSetExpenses = () => ({
+   
+// });
 
