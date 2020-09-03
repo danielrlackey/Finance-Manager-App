@@ -6,7 +6,7 @@ import configureStore from "./store/configureStore";
 import "normalize.css/normalize.css";
 import "./styles/styles.css";
 import "./firebase/firebase";
-
+import "./playground/promises.js"
 
 const store = configureStore();
 
