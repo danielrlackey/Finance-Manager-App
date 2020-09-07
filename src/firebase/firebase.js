@@ -1,5 +1,6 @@
 import * as firebase from "firebase";
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyDHiC_LATHl0oA1_PTNGiKzVKP9BrPkytI",
     authDomain: "money-manager-d6e2f.firebaseapp.com",
@@ -14,8 +15,9 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig)
 
 const dataBase = firebase.database()
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, dataBase as default };
+export { firebase, googleAuthProvider, dataBase as default };
 
 
 // dataBase.ref("expenses").on("child_removed", (snapshot) => {
