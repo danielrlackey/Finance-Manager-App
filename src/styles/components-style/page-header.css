@@ -1,0 +1,20 @@
+.page-header {
+    background: #f7f7f7;
+    padding: 3.2rem 0;
+    margin-bottom: 3.2rem;
+}
+
+.page-header-actions {
+    margin-top: 1.2rem;
+}
+
+.page-header-title {
+    font-weight: 300;
+    margin: 0;
+  
+}
+
+
+h2 span {
+    font-weight: 700;
+}

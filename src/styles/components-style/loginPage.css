@@ -8,7 +8,7 @@
     width: 100vw;
 }
 
-.loginPage-box {
+.loginPage-Box {
     background: white;
     border-radius: 5px;
     padding: 3.2rem 1.6rem;
@@ -16,8 +16,9 @@
     width: 25rem;
 }
 
-.loginPage-title {
+.loginPage-Title {
     margin: 0 0 1.6rem 0;
     line-height: 1;
-    
+
 }
+
