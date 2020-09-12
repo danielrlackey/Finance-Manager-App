@@ -66,11 +66,12 @@ onSubmit = (e) => {
 
    render() {
        return (
-           <div>
-               {this.state.error && <p>{this.state.error}</p>}
-               <form onSubmit={this.onSubmit}>
+               <form className="form" onSubmit={this.onSubmit}>
+               {this.state.error && <p className="form-error">{this.state.error}</p>}
                    <input
                       type="text"
+                      className="text-input"
+                      className="form-child"
                       placeholder="description"
                       autoFocus
                       value={this.state.description}
@@ -78,11 +79,14 @@ onSubmit = (e) => {
                    />
                    <input
                       type="text"
+                      className="text-input"
+                      className="form-child"
                       placeholder="amount"
                       value={this.state.amount}
                       onChange={this.onAmountChange}
                    />
                    <SingleDatePicker 
+                      className="form-child"
                       date={this.state.createdAt}
                       onDateChange={this.onDateChange}
                       focused={this.state.calendarFocused}
@@ -92,13 +96,17 @@ onSubmit = (e) => {
                    />
                    <textarea
                       placeholder="Add a note for your expense (optional)"
+                      className="text-area"
+                      className="form-child"
                       value={this.state.note}
                       onChange={this.onNoteChange}
                    >
                    </textarea>
-                   <button>Add Expense</button>
+                   <div>
+                    <button className="Button">Save Expense</button>
+                   </div>
+                   
                </form>
-           </div>
        )
    }
 }

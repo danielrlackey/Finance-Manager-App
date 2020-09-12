@@ -25,13 +25,16 @@ onFocusChange = (calendarFocused) => {
                     <div className="input-group-item">
                         <input 
                         type="text"
+                        placeholder="Search expenses"
+                        className="text-input"
                         value={this.props.filters.text} 
                         onChange={(e) => {
                         this.props.dispatch(setTextFilter(e.target.value));
                         }} />
                     </div>
                     <div className="input-group-item">
-                        <select 
+                        <select
+                        className="select"
                             value={this.props.filters.sortBy}
                             onChange={(e) => {
                                 if (e.target.value === "date") {
