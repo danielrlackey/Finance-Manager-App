@@ -1,2 +1,11 @@
 @import "./base/base.css";
-
+@import "./components-style/loginPage.css";
+@import "./components-style/buttons.css";
+@import "./components-style/header.css";
+@import "./components-style/content-container.css";
+@import "./components-style/page-header.css";
+@import "./components-style/input-group.css";
+@import "./components-style/inputs.css";
+@import "./components-style/form.css";
+@import "./components-style/visibility.css";
+@import "./components-style/list.css";
